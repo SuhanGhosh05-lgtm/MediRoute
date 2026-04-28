@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediRoute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== SCREEN: HOME ===================== -->
+  <div id="screen-home" class="screen active">
+    <header class="app-header">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header-brand">
+        <div class="brand-icon">M</div>
+        <span class="brand-name">MediRoute</span>
+      </div>
+      <div class="header-search-wrap">
+        <input class="header-search" type="text" placeholder="Search for hospitals and services..." />
+      </div>
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="icon-btn profile-btn" onclick="navigate('screen-profile')" aria-label="Profile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="home-main">
+
+      <!-- 1. TAGLINE -->
+      <div class="hero-section">
+        <h1 class="hero-title">Fast Access to<br/>Emergency Care</h1>
+        <p class="hero-sub">Find the nearest available hospital based on your needs and budget — in seconds.</p>
+      </div>
+
+      <!-- 2. LIVE OVERVIEW -->
+      <div class="home-section-label">Live Overview</div>
+      <div class="live-stats">
+        <div class="live-stat-card">
+          <div class="live-stat-icon live-stat-icon--blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="live-stat-value">187</span>
+          <span class="live-stat-label">Hospitals Available</span>
+        </div>
+        <div class="live-stat-card">
+          <div class="live-stat-icon live-stat-icon--green">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <span class="live-stat-value">43</span>
+          <span class="live-stat-label">Ambulances Active</span>
+        </div>
+        <div class="live-stat-card">
+          <div class="live-stat-icon live-stat-icon--orange">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="live-stat-value">~7 min</span>
+          <span class="live-stat-label">Avg. Response</span>
+        </div>
+      </div>
+
+      <!-- 3. QUICK ACTIONS -->
+      <div class="home-section-label">Quick Actions</div>
+      <div class="quick-actions">
+        <button class="quick-card" onclick="navigate('screen-hospitals')">
+          <div class="quick-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="quick-card-text">
+            <span class="quick-card-title">Explore Hospitals</span>
+            <span class="quick-card-sub">Browse all nearby facilities</span>
+          </div>
+          <svg class="quick-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="quick-card" onclick="navigate('screen-how')">
+          <div class="quick-card-icon quick-card-icon--gray">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="quick-card-text">
+            <span class="quick-card-title">How It Works</span>
+            <span class="quick-card-sub">Learn the 4-step process</span>
+          </div>
+          <svg class="quick-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- 4. HOSPITAL SUMMARY -->
+      <div class="home-section-label">At a Glance</div>
+      <div class="info-strip">
+        <div class="info-item">
+          <span class="info-value">240+</span>
+          <span class="info-label">Hospitals</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="info-value">24/7</span>
+          <span class="info-label">Available</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="info-value">ICU</span>
+          <span class="info-label">Tracking</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ===================== SCREEN: HOSPITALS EXPLORE ===================== -->
+  <div id="screen-hospitals" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Explore Hospitals</h2>
+    </header>
+    <div class="search-bar-wrap">
+      <div class="search-filter-row">
+        <input class="search-input" type="text" placeholder="Search by name or area..." />
+        <button class="filter-toggle-btn" onclick="toggleFilterPanel()" id="filter-toggle-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          Filter
+        </button>
+      </div>
+      <!-- Filter panel -->
+      <div class="filter-panel hidden" id="filter-panel">
+        <div class="filter-section-label">Sort / Filter</div>
+        <div class="filter-options">
+          <button class="filter-chip" data-filter="distance" onclick="applyFilter(this)">Nearest First</button>
+          <button class="filter-chip" data-filter="load" onclick="applyFilter(this)">Least Busy</button>
+          <button class="filter-chip" data-filter="rating" onclick="applyFilter(this)">Top Rated</button>
+          <button class="filter-chip" data-filter="Low" onclick="applyFilter(this)">Low Cost</button>
+          <button class="filter-chip" data-filter="Mid" onclick="applyFilter(this)">Mid Cost</button>
+          <button class="filter-chip" data-filter="High" onclick="applyFilter(this)">High Cost</button>
+          <button class="filter-chip filter-chip-clear" onclick="clearFilter()">Clear</button>
+        </div>
+      </div>
+    </div>
+    <div class="hospital-list" id="explore-list"></div>
+  </div>
+
+  <!-- ===================== SCREEN: EMERGENCY FORM ===================== -->
+  <div id="screen-form" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Emergency Request</h2>
+    </header>
+    <div class="form-wrap">
+
+      <div class="emergency-location-card">
+        <div class="elc-label">Your Location</div>
+        <div class="location-row">
+          <input id="location-input" class="form-input" type="text" placeholder="Enter your address or area" />
+          <button class="location-btn" onclick="useCurrentLocation()">Use Current</button>
+        </div>
+        <p id="location-status" class="location-status"></p>
+        <p class="elc-hint">Location is used to find the nearest available hospital. No other input is required.</p>
+      </div>
+
+      <div class="emergency-dispatch-info">
+        <div class="edi-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>AI selects the best available hospital automatically</span>
+        </div>
+        <div class="edi-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span>Nearest ambulance dispatched immediately</span>
+        </div>
+        <div class="edi-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Average response time: ~7 minutes</span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="navigate('screen-home')">Cancel</button>
+        <button class="btn-submit btn-dispatch" onclick="submitEmergency()">Request Emergency Help</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: RESULTS ===================== -->
+  <div id="screen-results" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-form')">&#8592;</button>
+      <h2 class="inner-title">AI-Ranked Hospitals</h2>
+    </header>
+    <div class="results-meta" id="results-meta"></div>
+    <div class="hospital-list" id="results-list"></div>
+  </div>
+
+  <!-- ===================== SCREEN: HOSPITAL DETAIL ===================== -->
+  <div id="screen-detail" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" id="detail-back-btn">&#8592;</button>
+      <h2 class="inner-title">Hospital Details</h2>
+    </header>
+    <div id="detail-content" class="detail-wrap"></div>
+  </div>
+
+  <!-- ===================== POPUP: CONFIRM EMERGENCY ===================== -->
+  <div id="confirm-overlay" class="overlay hidden">
+    <div class="popup">
+      <div class="popup-icon-wrap">
+        <div class="popup-icon">!</div>
+      </div>
+      <h3 class="popup-title">Confirm Emergency Request</h3>
+      <p class="popup-body">Are you sure you want to request immediate emergency assistance? This will dispatch an ambulance and notify nearby hospitals.</p>
+      <div class="popup-actions">
+        <button class="popup-no" onclick="closeConfirmPopup()">Cancel</button>
+        <button class="popup-yes" onclick="confirmEmergency()">Yes, Request Help</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP: BOOK CONFIRMATION ===================== -->
+  <div id="book-confirm-overlay" class="overlay hidden">
+    <div class="popup">
+      <div class="popup-icon-wrap" style="background:#eff6ff;">
+        <div class="popup-icon" style="background:#2563eb;">&#10003;</div>
+      </div>
+      <h3 class="popup-title">Confirm Booking</h3>
+      <p class="popup-body" id="book-confirm-text">Book an ambulance to this hospital?</p>
+      <div class="popup-actions">
+        <button class="popup-no" onclick="closeBookPopup()">Cancel</button>
+        <button class="popup-yes" style="background:#2563eb;box-shadow:0 4px 12px rgba(37,99,235,0.3);" onclick="confirmBooking()">Yes, Book</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP: BOOKING SUCCESS ===================== -->
+  <div id="book-success-overlay" class="overlay hidden">
+    <div class="popup">
+      <div class="popup-icon-wrap" style="background:#f0fdf4;">
+        <div class="popup-icon" style="background:#16a34a;">&#10003;</div>
+      </div>
+      <h3 class="popup-title">Booking Successful</h3>
+      <p class="popup-body">Your ambulance has been booked. Help is on the way!</p>
+      <div class="popup-actions" style="justify-content:center;">
+        <button class="popup-yes" style="background:#16a34a;box-shadow:0 4px 12px rgba(22,163,74,0.3);flex:1;" onclick="goToTracking()">Track Ambulance</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: AMBULANCE TRACKING ===================== -->
+  <!-- ===================== SCREEN: AMBULANCE TRACKING ===================== -->
+  <div id="screen-tracking" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="stopTrackingSimulation(); navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Ambulance Tracking</h2>
+      <span class="tracking-live-badge" id="tracking-live-badge">Live</span>
+    </header>
+    <div class="tracking-wrap">
+
+      <!-- STATUS CARD — shown first, always visible -->
+      <div class="tracking-status-card" id="tracking-status-card">
+        <div class="tracking-pulse-ring" id="tracking-pulse-ring">
+          <div class="tracking-pulse-dot">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+        </div>
+        <h3 class="tracking-title" id="tracking-status-title">Ambulance is on the way</h3>
+        <p class="tracking-sub" id="tracking-status-sub">Stay calm. Help is coming to you.</p>
+      </div>
+
+      <!-- ETA CARD -->
+      <div class="tracking-eta-card">
+        <div class="tracking-eta-label">Estimated Arrival</div>
+        <div class="tracking-eta-value" id="tracking-eta">~8 minutes</div>
+        <div class="tracking-eta-note" id="tracking-eta-note">Based on current traffic conditions</div>
+      </div>
+
+      <!-- DRIVER / VEHICLE INFO CARD -->
+      <div class="tracking-info-card">
+        <div class="tracking-info-row">
+          <span class="tracking-info-label">Driver</span>
+          <span class="tracking-info-value" id="tracking-driver">James K.</span>
+        </div>
+        <div class="tracking-info-row">
+          <span class="tracking-info-label">Vehicle</span>
+          <span class="tracking-info-value" id="tracking-vehicle">AMB-2047</span>
+        </div>
+        <div class="tracking-info-row">
+          <span class="tracking-info-label">Ambulance ETA</span>
+          <span class="tracking-info-value" id="tracking-amb-eta" style="color:var(--green);font-weight:700;">—</span>
+        </div>
+        <div class="tracking-info-row">
+          <span class="tracking-info-label">Status</span>
+          <span class="tracking-info-value" id="tracking-status-text" style="color:#16a34a;font-weight:700;">En Route</span>
+        </div>
+        <div class="tracking-info-row" style="border:none;">
+          <span class="tracking-info-label">Hospital</span>
+          <span class="tracking-info-value" id="tracking-hospital-name">—</span>
+        </div>
+      </div>
+
+      <!-- LIVE MAP ENTRY CARD — tappable, opens full-screen map -->
+      <button class="map-entry-card" onclick="openMapScreen()" id="map-entry-card">
+        <div class="map-entry-left">
+          <div class="map-entry-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          </div>
+          <div class="map-entry-text">
+            <span class="map-entry-title">Live Tracking Map</span>
+            <span class="map-entry-sub">View ambulance movement in real time</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <button class="btn-cancel" style="margin:0 0 16px;" onclick="stopTrackingSimulation(); navigate('screen-home')">Back to Home</button>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP: BILLING PROMPT (shown on arrival) ===================== -->
+  <div id="billing-prompt-overlay" class="overlay hidden">
+    <div class="popup">
+      <button class="billing-prompt-close" onclick="closeBillingPrompt()" aria-label="Close">&#10005;</button>
+      <div class="popup-icon-wrap" style="background:var(--blue-light);">
+        <div class="popup-icon" style="background:var(--blue);">&#8377;</div>
+      </div>
+      <h3 class="popup-title">Ambulance Arrived</h3>
+      <p class="popup-body">Your ambulance is on the way. You may complete payment now or within 24 hours.</p>
+      <div class="popup-actions">
+        <button class="popup-no" onclick="closeBillingPrompt(); goToPayLater()">Pay within 24 hrs</button>
+        <button class="popup-yes" style="background:var(--blue);box-shadow:0 4px 12px rgba(37,99,235,0.3);" onclick="closeBillingPrompt(); openBilling()">Pay Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: LIVE MAP (FULL SCREEN) ===================== -->
+  <div id="screen-map" class="screen">
+    <header class="inner-header" style="position:relative;z-index:2;">
+      <button class="back-btn" onclick="navigate('screen-tracking')">&#8592;</button>
+      <h2 class="inner-title">Live Map</h2>
+      <span class="tracking-live-badge">Live</span>
+    </header>
+
+    <!-- FULL MAP CANVAS -->
+    <div class="map-fullscreen">
+
+      <!-- Map base -->
+      <div class="map-base">
+        <!-- Roads -->
+        <div class="mf-road mf-road-h" style="top:22%"></div>
+        <div class="mf-road mf-road-h" style="top:50%"></div>
+        <div class="mf-road mf-road-h" style="top:74%"></div>
+        <div class="mf-road mf-road-v" style="left:20%"></div>
+        <div class="mf-road mf-road-v" style="left:50%"></div>
+        <div class="mf-road mf-road-v" style="left:76%"></div>
+      </div>
+
+      <!-- Route SVG -->
+      <svg class="mf-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path id="mf-route-path"
+          d="M 76,22 L 76,50 L 50,50 L 50,74 L 20,74 L 20,82"
+          fill="none" stroke="#2563eb" stroke-width="2"
+          stroke-dasharray="5 3" stroke-linecap="round"
+          stroke-linejoin="round" opacity="0.75"/>
+      </svg>
+
+      <!-- User marker -->
+      <div class="mf-user-marker" style="left:20%;top:82%;">
+        <div class="mf-user-dot"></div>
+        <div class="mf-user-ring"></div>
+        <span class="mf-user-label">You</span>
+      </div>
+
+      <!-- Ambulance marker — animated by JS -->
+      <div class="mf-amb-marker" id="mf-ambulance">
+        <div class="mf-amb-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <span class="mf-amb-label" id="mf-amb-label">AMB</span>
+      </div>
+
+      <!-- Bottom info strip -->
+      <div class="mf-info-strip">
+        <div class="mf-info-col">
+          <span class="mf-info-val" id="mf-eta-val">—</span>
+          <span class="mf-info-key">ETA</span>
+        </div>
+        <div class="mf-info-sep"></div>
+        <div class="mf-info-col">
+          <span class="mf-info-val" id="mf-status-val">En Route</span>
+          <span class="mf-info-key">Status</span>
+        </div>
+        <div class="mf-info-sep"></div>
+        <div class="mf-info-col">
+          <span class="mf-info-val" id="mf-driver-val">—</span>
+          <span class="mf-info-key">Driver</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NAV DRAWER ===================== -->
+  <div id="drawer-backdrop" class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <nav id="nav-drawer" class="nav-drawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <div class="brand-icon">M</div>
+        <span class="brand-name">MediRoute</span>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&#10005;</button>
+    </div>
+    <div class="drawer-profile-mini">
+      <div class="drawer-avatar">AK</div>
+      <div>
+        <div class="drawer-profile-name">Aryan Khan</div>
+        <div class="drawer-profile-email">aryan.khan@gmail.com</div>
+      </div>
+    </div>
+    <ul class="drawer-nav">
+      <li><button class="drawer-item active-item" onclick="drawerNavigate('screen-home')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span> Home
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-dashboard')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </span> Dashboard
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-profile')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span> My Profile
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-history')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </span> Booking History
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-analytics')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </span> Analytics
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-about')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </span> About Us
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-how')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </span> How It Works
+      </button></li>
+      <li><button class="drawer-item" onclick="drawerNavigate('screen-settings')">
+        <span class="drawer-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </span> Settings
+      </button></li>
+    </ul>
+    <div class="drawer-logout-wrap">
+      <button class="drawer-logout-btn" onclick="handleLogout()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Log Out
+      </button>
+    </div>
+    <div class="drawer-footer">MediRoute v1.0 &bull; Emergency Care, Instantly Found</div>
+  </nav>
+
+  <!-- ===================== SCREEN: MY PROFILE ===================== -->
+  <div id="screen-profile" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">My Profile</h2>
+      <button class="profile-edit-header-btn" onclick="openEditProfile()">Edit</button>
+    </header>
+    <div class="page-wrap">
+
+      <!-- Avatar + name hero -->
+      <div class="profile-hero-v2">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar-lg" id="profile-avatar-display">AK</div>
+          <div class="profile-avatar-badge">✓</div>
+        </div>
+        <div class="profile-hero-name" id="profile-display-name">Aryan Khan</div>
+        <div class="profile-hero-username" id="profile-username-display">@aryan_khan</div>
+        <div class="profile-hero-email" id="profile-email-display">aryan.khan@gmail.com</div>
+      </div>
+
+      <!-- Personal Info -->
+      <div class="detail-section">
+        <div class="detail-section-title">Personal Info</div>
+        <div class="detail-row">
+          <span class="detail-row-label">Full Name</span>
+          <span class="detail-row-value" id="pv-name">Aryan Khan</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Display Name</span>
+          <span class="detail-row-value" id="pv-displayname">Aryan</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Username</span>
+          <span class="detail-row-value" id="pv-username" style="color:var(--blue);">@aryan_khan</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Email</span>
+          <span class="detail-row-value" id="pv-email">aryan.khan@gmail.com</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Phone</span>
+          <span class="detail-row-value" id="pv-phone">+91 98765 43210</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Address</span>
+          <span class="detail-row-value" id="pv-address">Kolkata, West Bengal, India</span>
+        </div>
+      </div>
+
+      <!-- Account Meta -->
+      <div class="detail-section">
+        <div class="detail-section-title">Account</div>
+        <div class="detail-row">
+          <span class="detail-row-label">Member Since</span>
+          <span class="detail-row-value">January 2024</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Account Type</span>
+          <span class="detail-row-value" style="color:var(--blue);font-weight:700;">Standard</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Total Bookings</span>
+          <span class="detail-row-value">5</span>
+        </div>
+        <div class="detail-row" style="border:none;">
+          <span class="detail-row-label">Payment Status</span>
+          <span class="detail-row-value" id="profile-payment-status">
+            <span class="pay-status-badge pay-status-clear">No Outstanding Bills</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Overdue warning (shown only when overdue) -->
+      <div class="overdue-warning hidden" id="profile-overdue-warning">
+        <div class="overdue-warning-title">Payment Overdue</div>
+        <p class="overdue-warning-body">Payment is overdue. Your emergency service was registered with your verified contact details. Please complete the payment to continue using full services.</p>
+        <p class="overdue-escalation">Unpaid bills may be escalated to hospital administration for further follow-up.</p>
+        <button class="btn-submit" style="margin-top:12px;" onclick="navigate('screen-billing')">Complete Payment</button>
+      </div>
+
+      <button class="btn-edit-profile" onclick="openEditProfile()">Edit Profile</button>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: EDIT PROFILE ===================== -->
+  <div id="screen-edit-profile" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-profile')">&#8592;</button>
+      <h2 class="inner-title">Edit Profile</h2>
+    </header>
+    <div class="page-wrap">
+
+      <!-- Avatar change -->
+      <div class="edit-avatar-section">
+        <div class="profile-avatar-lg edit-avatar-preview" id="edit-avatar-preview">AK</div>
+        <button class="edit-avatar-btn" onclick="alert('Photo upload coming soon!')">Change Photo</button>
+      </div>
+
+      <!-- Fields -->
+      <div class="detail-section">
+        <div class="detail-section-title">Personal Info</div>
+
+        <div class="edit-field-group">
+          <label class="edit-field-label">Full Name</label>
+          <input class="edit-field-input" id="edit-name" type="text" placeholder="Your full name" />
+        </div>
+        <div class="edit-field-group">
+          <label class="edit-field-label">Display Name</label>
+          <input class="edit-field-input" id="edit-displayname" type="text" placeholder="Display name" />
+        </div>
+        <div class="edit-field-group">
+          <label class="edit-field-label">Username</label>
+          <div class="edit-username-wrap">
+            <span class="edit-username-at">@</span>
+            <input class="edit-field-input edit-username-input" id="edit-username" type="text" placeholder="username" />
+          </div>
+        </div>
+        <div class="edit-field-group">
+          <label class="edit-field-label">Email</label>
+          <input class="edit-field-input" id="edit-email" type="email" placeholder="email@example.com" />
+        </div>
+        <div class="edit-field-group">
+          <label class="edit-field-label">Phone Number</label>
+          <input class="edit-field-input" id="edit-phone" type="tel" placeholder="+91 00000 00000" />
+        </div>
+        <div class="edit-field-group" style="border-bottom:none;">
+          <label class="edit-field-label">Address</label>
+          <input class="edit-field-input" id="edit-address" type="text" placeholder="City, State, Country" />
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="edit-actions">
+        <button class="edit-btn-cancel" onclick="navigate('screen-profile')">Cancel</button>
+        <button class="edit-btn-save" onclick="saveProfile()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: BOOKING HISTORY ===================== -->
+  <div id="screen-history" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Booking History</h2>
+    </header>
+    <div class="page-wrap">
+      <!-- Current case (injected dynamically by JS) -->
+      <div id="history-current-case"></div>
+      <!-- Static past records -->
+      <div class="history-card">
+        <div class="history-top">
+          <div class="history-hospital">City Central Hospital</div>
+          <span class="history-badge badge-completed">Completed</span>
+        </div>
+        <div class="history-meta">ICU &bull; 12 Apr 2025</div>
+        <div class="history-row-bottom">
+          <span class="history-id">Booking #MR-00412</span>
+          <span class="pay-status-badge pay-status-paid">Paid</span>
+        </div>
+      </div>
+      <div class="history-card">
+        <div class="history-top">
+          <div class="history-hospital">Unity Health Institute</div>
+          <span class="history-badge badge-completed">Completed</span>
+        </div>
+        <div class="history-meta">General Bed &bull; 28 Mar 2025</div>
+        <div class="history-row-bottom">
+          <span class="history-id">Booking #MR-00389</span>
+          <span class="pay-status-badge pay-status-paid">Paid</span>
+        </div>
+      </div>
+      <div class="history-card">
+        <div class="history-top">
+          <div class="history-hospital">Apex Specialty Hospital</div>
+          <span class="history-badge badge-cancelled">Cancelled</span>
+        </div>
+        <div class="history-meta">Ambulance &bull; 10 Feb 2025</div>
+        <div class="history-row-bottom">
+          <span class="history-id">Booking #MR-00341</span>
+          <span class="pay-status-badge pay-status-clear">N/A</span>
+        </div>
+      </div>
+      <div class="history-card">
+        <div class="history-top">
+          <div class="history-hospital">Mercy General Medical Center</div>
+          <span class="history-badge badge-completed">Completed</span>
+        </div>
+        <div class="history-meta">General Bed &bull; 05 Jan 2025</div>
+        <div class="history-row-bottom">
+          <span class="history-id">Booking #MR-00298</span>
+          <span class="pay-status-badge pay-status-paid">Paid</span>
+        </div>
+      </div>
+      <div class="history-card">
+        <div class="history-top">
+          <div class="history-hospital">North Star Medical</div>
+          <span class="history-badge badge-cancelled">Cancelled</span>
+        </div>
+        <div class="history-meta">ICU &bull; 19 Dec 2024</div>
+        <div class="history-row-bottom">
+          <span class="history-id">Booking #MR-00271</span>
+          <span class="pay-status-badge pay-status-clear">N/A</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: ABOUT US ===================== -->
+  <div id="screen-about" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">About Us</h2>
+    </header>
+    <div class="page-wrap">
+      <div class="about-hero">
+        <div class="about-logo">
+          <div class="brand-icon" style="width:56px;height:56px;font-size:26px;border-radius:16px;">M</div>
+        </div>
+        <h2 class="about-title">MediRoute</h2>
+        <p class="about-tagline">Emergency Care, Instantly Found</p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">Our Mission</div>
+        <p class="page-text">MediRoute is an AI-powered emergency healthcare platform designed to connect patients with the nearest available hospitals in seconds. In critical moments, every second counts — and MediRoute ensures you never waste one searching for help.</p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">What We Do</div>
+        <p class="page-text">We use real-time hospital availability data, distance calculations, and cost filters to intelligently match patients with the most suitable hospital for their emergency. From ICU beds to general wards and ambulance dispatch, MediRoute covers it all.</p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">Our Vision</div>
+        <p class="page-text">We envision a world where no one is turned away from emergency care due to lack of information. MediRoute bridges the gap between patients in distress and the healthcare infrastructure that can save their lives.</p>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat"><span class="about-stat-val">240+</span><span class="about-stat-label">Hospitals</span></div>
+        <div class="about-stat"><span class="about-stat-val">24/7</span><span class="about-stat-label">Support</span></div>
+        <div class="about-stat"><span class="about-stat-val">50K+</span><span class="about-stat-label">Users</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: HOW IT WORKS ===================== -->
+  <div id="screen-how" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">How It Works</h2>
+    </header>
+    <div class="page-wrap">
+      <p class="page-intro">MediRoute makes emergency hospital access simple in 4 easy steps.</p>
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <div class="how-step-body">
+          <div class="how-step-title">Trigger Emergency or Explore</div>
+          <p class="how-step-desc">Tap the red Emergency button for immediate assistance, or browse hospitals freely using the Explore option. Enter your location and preferences.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <div class="how-step-body">
+          <div class="how-step-title">AI Filters Hospitals</div>
+          <p class="how-step-desc">Our system instantly filters hospitals based on real-time bed availability, your distance, cost preference (Low / Mid / High), and required service type (ICU or General Bed).</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <div class="how-step-body">
+          <div class="how-step-title">Book Your Hospital</div>
+          <p class="how-step-desc">Select a hospital from the results and tap "Book Hospital". Confirm your booking in the popup — it takes under 10 seconds.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">4</div>
+        <div class="how-step-body">
+          <div class="how-step-title">Track Your Ambulance</div>
+          <p class="how-step-desc">After booking, you're taken to the live ambulance tracking screen showing driver details, vehicle ID, estimated arrival time, and real-time status.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: SETTINGS ===================== -->
+  <div id="screen-settings" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Settings</h2>
+    </header>
+    <div class="page-wrap">
+      <div class="detail-section">
+        <div class="detail-section-title">Language</div>
+        <div class="settings-lang-group">
+          <button class="lang-btn selected-lang" id="lang-en" onclick="selectLang('en')">English</button>
+          <button class="lang-btn" id="lang-bn" onclick="selectLang('bn')">Bengali</button>
+          <button class="lang-btn" id="lang-hi" onclick="selectLang('hi')">Hindi</button>
+        </div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">Legal</div>
+        <button class="settings-link-row" onclick="navigate('screen-terms')">
+          <span>Terms &amp; Conditions</span>
+          <span class="settings-chevron">›</span>
+        </button>
+        <button class="settings-link-row" onclick="navigate('screen-privacy')">
+          <span>Privacy Policy</span>
+          <span class="settings-chevron">›</span>
+        </button>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-title">App Info</div>
+        <div class="detail-row">
+          <span class="detail-row-label">Version</span>
+          <span class="detail-row-value">1.0.0</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Build</span>
+          <span class="detail-row-value">2025.04</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: TERMS & CONDITIONS ===================== -->
+  <div id="screen-terms" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-settings')">&#8592;</button>
+      <h2 class="inner-title">Terms &amp; Conditions</h2>
+    </header>
+    <div class="page-wrap">
+      <div class="legal-section">
+        <p class="legal-updated">Last updated: April 2025</p>
+        <h3 class="legal-heading">1. Acceptance of Terms</h3>
+        <p class="page-text">By accessing or using MediRoute, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the application.</p>
+        <h3 class="legal-heading">2. Use of Service</h3>
+        <p class="page-text">MediRoute is intended for emergency healthcare assistance only. The app provides hospital availability information and booking facilitation. It does not replace professional medical advice or emergency services.</p>
+        <h3 class="legal-heading">3. Accuracy of Information</h3>
+        <p class="page-text">While we strive to provide accurate and up-to-date hospital availability data, MediRoute cannot guarantee the real-time accuracy of all listings. Always confirm with the hospital directly in critical situations.</p>
+        <h3 class="legal-heading">4. User Responsibilities</h3>
+        <p class="page-text">Users are responsible for providing accurate location and personal information. Misuse of the emergency booking system may result in account suspension.</p>
+        <h3 class="legal-heading">5. Limitation of Liability</h3>
+        <p class="page-text">MediRoute and its developers shall not be held liable for any damages arising from the use or inability to use this application, including delays in emergency response.</p>
+        <h3 class="legal-heading">6. Changes to Terms</h3>
+        <p class="page-text">We reserve the right to modify these terms at any time. Continued use of the app after changes constitutes acceptance of the new terms.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: PRIVACY POLICY ===================== -->
+  <div id="screen-privacy" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-settings')">&#8592;</button>
+      <h2 class="inner-title">Privacy Policy</h2>
+    </header>
+    <div class="page-wrap">
+      <div class="legal-section">
+        <p class="legal-updated">Last updated: April 2025</p>
+        <h3 class="legal-heading">1. Information We Collect</h3>
+        <p class="page-text">We collect information you provide directly, including your name, email address, phone number, and location data when you use MediRoute's emergency services.</p>
+        <h3 class="legal-heading">2. How We Use Your Information</h3>
+        <p class="page-text">Your data is used solely to facilitate hospital bookings, ambulance dispatch, and to improve the accuracy of our hospital matching algorithm. We do not sell your data to third parties.</p>
+        <h3 class="legal-heading">3. Location Data</h3>
+        <p class="page-text">MediRoute requests access to your device's GPS to provide accurate nearby hospital results. Location data is used only during active sessions and is not stored permanently.</p>
+        <h3 class="legal-heading">4. Data Security</h3>
+        <p class="page-text">We implement industry-standard encryption and security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+        <h3 class="legal-heading">5. Third-Party Services</h3>
+        <p class="page-text">MediRoute may integrate with third-party mapping and hospital database services. These services have their own privacy policies which we encourage you to review.</p>
+        <h3 class="legal-heading">6. Your Rights</h3>
+        <p class="page-text">You have the right to access, correct, or delete your personal data at any time by contacting our support team at privacy@mediroute.app.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: DASHBOARD ===================== -->
+  <div id="screen-dashboard" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Dashboard</h2>
+    </header>
+    <div class="page-wrap">
+
+      <!-- Active Booking -->
+      <div class="detail-section">
+        <div class="detail-section-title">Active Booking</div>
+        <div id="dash-active-booking"></div>
+      </div>
+
+      <!-- System Status -->
+      <div class="detail-section">
+        <div class="detail-section-title">System Status</div>
+        <div class="detail-row">
+          <span class="detail-row-label">Hospitals Online</span>
+          <span class="detail-row-value" style="color:var(--green);font-weight:700;">187 / 240</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Ambulances Active</span>
+          <span class="detail-row-value" style="color:var(--green);font-weight:700;">43</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Avg. Response Time</span>
+          <span class="detail-row-value">~7 min</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Network Load</span>
+          <span class="detail-row-value" style="color:#d97706;font-weight:700;">Moderate</span>
+        </div>
+      </div>
+
+      <!-- Priority Queue -->
+      <div class="detail-section">
+        <div class="detail-section-title">Priority Queue</div>
+        <div class="priority-row priority-red">
+          <span class="priority-dot dot-red"></span>
+          <span class="priority-label">Red — Critical</span>
+          <span class="priority-count">3 active</span>
+        </div>
+        <div class="priority-row priority-yellow">
+          <span class="priority-dot dot-yellow"></span>
+          <span class="priority-label">Yellow — Moderate</span>
+          <span class="priority-count">11 active</span>
+        </div>
+        <div class="priority-row priority-green">
+          <span class="priority-dot dot-green"></span>
+          <span class="priority-label">Green — Low</span>
+          <span class="priority-count">27 active</span>
+        </div>
+      </div>
+
+      <!-- Recent History -->
+      <div class="detail-section">
+        <div class="detail-section-title">Recent Activity</div>
+        <div class="detail-row">
+          <span class="detail-row-label">City Central Hospital</span>
+          <span class="detail-row-value" style="color:var(--green);">Completed</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Unity Health Institute</span>
+          <span class="detail-row-value" style="color:var(--green);">Completed</span>
+        </div>
+        <div class="detail-row" style="border:none;">
+          <span class="detail-row-label">Apex Specialty Hospital</span>
+          <span class="detail-row-value" style="color:var(--red);">Cancelled</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: ANALYTICS ===================== -->
+  <div id="screen-analytics" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-home')">&#8592;</button>
+      <h2 class="inner-title">Analytics</h2>
+    </header>
+    <div class="page-wrap">
+
+      <!-- Peak Hours -->
+      <div class="detail-section">
+        <div class="detail-section-title">Peak Emergency Hours (Simulated)</div>
+        <div class="analytics-chart" id="analytics-peak-chart"></div>
+        <p class="analytics-note">16:00–20:00 is the highest demand window. System pre-allocates resources during this period.</p>
+      </div>
+
+      <!-- Demand Heatmap -->
+      <div class="detail-section">
+        <div class="detail-section-title">Demand Zones — Heatmap</div>
+        <div class="heatmap-grid" id="analytics-heatmap"></div>
+        <p class="analytics-note">Red zones indicate high emergency frequency. Resources are prioritised accordingly.</p>
+      </div>
+
+      <!-- Resource Insights -->
+      <div class="detail-section">
+        <div class="detail-section-title">Resource Optimisation Insights</div>
+        <div class="detail-row">
+          <span class="detail-row-label">ICU Utilisation</span>
+          <span class="detail-row-value" style="color:#d97706;font-weight:700;">74%</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Ambulance Efficiency</span>
+          <span class="detail-row-value" style="color:var(--green);font-weight:700;">88%</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Avg. Bed Turnover</span>
+          <span class="detail-row-value">4.2 hrs</span>
+        </div>
+        <div class="detail-row" style="border:none;">
+          <span class="detail-row-label">Predicted Peak (Today)</span>
+          <span class="detail-row-value" style="color:var(--red);font-weight:700;">18:30 – 19:45</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: BILLING ===================== -->
+  <div id="screen-billing" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-tracking')">&#8592;</button>
+      <h2 class="inner-title">Emergency Billing</h2>
+    </header>
+    <div class="page-wrap">
+
+      <!-- Case + hospital summary -->
+      <div class="billing-summary-card">
+        <div class="billing-summary-label">Emergency Case</div>
+        <div class="billing-case-id" id="billing-case-id">Case #MR-EMG-0001</div>
+        <div class="billing-hospital" id="billing-hospital-name">—</div>
+        <div class="billing-summary-meta">
+          <span id="billing-hospital-distance">—</span>
+          <span class="billing-meta-sep">·</span>
+          <span id="billing-amb-id">—</span>
+          <span class="billing-meta-sep">·</span>
+          <span id="billing-amb-driver">—</span>
+        </div>
+        <div class="billing-pay-status-pill" id="billing-pay-status-pill">Pending Payment</div>
+      </div>
+
+      <!-- Cost breakdown — only ambulance + consultation -->
+      <div class="detail-section">
+        <div class="detail-section-title">Cost Breakdown</div>
+        <div class="detail-row">
+          <span class="detail-row-label">Ambulance Service</span>
+          <span class="detail-row-value" id="bill-ambulance">₹1,500</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Emergency Consultation</span>
+          <span class="detail-row-value" id="bill-consult">₹900</span>
+        </div>
+        <div class="detail-row billing-total-row">
+          <span class="detail-row-label" style="font-weight:700;color:var(--gray-900);">Total</span>
+          <span class="detail-row-value billing-total" id="bill-total">₹2,400</span>
+        </div>
+      </div>
+
+      <!-- Payment action buttons only -->
+      <div class="billing-pay-btns">
+        <button class="billing-pay-btn billing-pay-now-btn" onclick="goToPayNow()">Pay Now</button>
+        <button class="billing-pay-btn billing-pay-later-btn" onclick="goToPayLater()">Pay within 24 Hours</button>
+      </div>
+
+      <p class="billing-note">All charges are simulated estimates. Emergency services are never withheld due to payment status.</p>
+
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: PAYMENT ===================== -->
+  <div id="screen-payment" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-billing')">&#8592;</button>
+      <h2 class="inner-title">Payment</h2>
+    </header>
+    <div class="page-wrap">
+
+      <div class="detail-section">
+        <div class="detail-section-title">Amount Due</div>
+        <div class="detail-row" style="border:none;">
+          <span class="detail-row-label">Total</span>
+          <span class="detail-row-value billing-total" id="payment-total-display">₹2,400</span>
+        </div>
+      </div>
+
+      <!-- Payment method selection -->
+      <div class="detail-section" id="payment-method-section">
+        <div class="detail-section-title">Select Payment Method</div>
+        <div class="pay-method-options">
+          <label class="pay-method-option selected-pay-method" id="pm-upi">
+            <input type="radio" name="pay-method" value="upi" checked onchange="selectPayMethod(this)" />
+            <div class="pay-method-body">
+              <span class="pay-method-title">UPI</span>
+              <span class="pay-method-sub">Pay instantly via UPI ID or QR</span>
+            </div>
+          </label>
+          <label class="pay-method-option" id="pm-card">
+            <input type="radio" name="pay-method" value="card" onchange="selectPayMethod(this)" />
+            <div class="pay-method-body">
+              <span class="pay-method-title">Debit / Credit Card</span>
+              <span class="pay-method-sub">Visa, Mastercard, RuPay accepted</span>
+            </div>
+          </label>
+          <label class="pay-method-option" id="pm-cash">
+            <input type="radio" name="pay-method" value="cash" onchange="selectPayMethod(this)" />
+            <div class="pay-method-body">
+              <span class="pay-method-title">Cash at Hospital</span>
+              <span class="pay-method-sub">Pay at the billing counter on arrival</span>
+            </div>
+          </label>
+        </div>
+        <button class="btn-submit" style="margin-top:16px;" id="confirm-pay-btn" onclick="confirmPayNow()">Confirm Payment</button>
+      </div>
+
+      <!-- Payment success (shown only after confirmation) -->
+      <div class="billing-paid-msg hidden" id="billing-paid-msg">
+        <div class="billing-paid-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="billing-paid-title">Payment Successful</div>
+        <div class="billing-paid-sub" id="billing-paid-method">Payment confirmed.</div>
+        <button class="btn-submit billing-complete-btn" style="margin-top:16px;" onclick="completeEmergencyCase()">Close Case</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: PAY LATER POLICY ===================== -->
+  <div id="screen-paylater" class="screen">
+    <header class="inner-header">
+      <button class="back-btn" onclick="navigate('screen-billing')">&#8592;</button>
+      <h2 class="inner-title">Pay within 24 Hours</h2>
+    </header>
+    <div class="page-wrap">
+
+      <div class="paylater-reassurance">
+        <div class="paylater-reassurance-title">Your emergency service is not affected.</div>
+        <p class="paylater-reassurance-body">Help has been dispatched. Payment does not delay or interrupt emergency assistance.</p>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-title">Payment Policy</div>
+        <div class="detail-row">
+          <span class="detail-row-label">Payment window</span>
+          <span class="detail-row-value">24 hours from dispatch</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">Linked to</span>
+          <span class="detail-row-value">Your verified account</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label">If unpaid</span>
+          <span class="detail-row-value" style="color:var(--red);">Non-emergency bookings restricted</span>
+        </div>
+        <div class="detail-row" style="border:none;">
+          <span class="detail-row-label">Escalation</span>
+          <span class="detail-row-value" style="color:var(--gray-500);">Hospital administration notified</span>
+        </div>
+      </div>
+
+      <p class="billing-note" style="text-align:left;">Unpaid bills may be escalated to hospital administration for further follow-up.</p>
+
+      <button class="btn-submit" onclick="confirmPayLater()">I Understand</button>
+
+    </div>
+  </div>
+
+  <!-- ===================== FLOATING EMERGENCY FAB ===================== -->
+  <button class="fab-emergency" id="fab-emergency" onclick="openConfirmPopup()" aria-label="Emergency">
+    Emergency
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>
